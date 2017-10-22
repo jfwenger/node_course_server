@@ -2,6 +2,7 @@ const express = require("express");
 const hbs = require("hbs");
 const fs = require("fs");
 const os = require("os");
+const port = process.env.PORT || 3000; // calls port dynamically from the environment variables, sets 3000 if it isn't there.
 
 var app = express();
 
@@ -103,6 +104,6 @@ app.get("/bad", (request, response) => {
 
 // binds the app to that port, a common local dev port
 // arg 2 is a callback once the launch is compelte
-app.listen(3000, () => {
-  console.log("Server is ready on port 3000.");
+app.listen(port, () => {
+  console.log(`Server is ready on port ${port}.`);
 });
